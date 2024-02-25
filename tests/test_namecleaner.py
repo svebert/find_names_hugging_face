@@ -30,21 +30,21 @@ class ExampleReader:
 def test_namecleaner_simple():
     text1 = "Hallo ich bin Hans Mustermann und will nicht, dass irgendwer meinen Namen liest. Es geht mir aber nur um den Namen, " \
             + "nicht um meine Adresse: Hamburg, Poppenbüttler Str. 57"
-    target = text1.replace("Hans", "<Name0>").replace("Mustermann", "<Name1>")
+    target = text1.replace("Hans", "<Name>").replace("Mustermann", "<Name>")
     nc = NameCleaner()
     cleaned_text = nc.clean(text=text1)
     assert cleaned_text == target
 
 def test_namecleaner_join_fragments():
     text1 = "Du Jürgen wo ist Heinz Herbert"           
-    target = text1.replace("Jürgen", "<Name0>").replace("Heinz", "<Name1>").replace("Herbert", "<Name2>")
+    target = text1.replace("Jürgen", "<Name>").replace("Heinz", "<Name>").replace("Herbert", "<Name>")
     nc = NameCleaner()
     cleaned_text = nc.clean(text=text1)
     assert cleaned_text == target
 
 def test_namecleaner_positive_list():
     text1 = "Du Jürgen, ich bin der Herbert und ihr habt alle eure Namen und könnt sie behalten"          
-    target = text1.replace("Jürgen", "<Name0>").replace("Herbert", "<Name1>")
+    target = text1.replace("Jürgen", "<Name>").replace("Herbert", "<Name>")
     nc = NameCleaner()
     cleaned_text = nc.clean(text=text1)
     assert cleaned_text == target
