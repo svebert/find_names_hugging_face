@@ -1,0 +1,6 @@
+huggingface_hub
+pytest
+transformers
+datasets
+seqeval
+seqeval
